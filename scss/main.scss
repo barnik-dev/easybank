@@ -1,0 +1,216 @@
+@import "./colors", "./base", "./mixins";
+
+// Navigation Section
+.top-section .container {
+  @include displayFlex(space-between, center, 1em);
+  background-color: $white;
+  padding: 1em 0;
+
+  .navbar ul {
+    @include displayFlex(center, center, 2em);
+
+    .list-item:hover {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -1.3em;
+        background: linear-gradient(to left, $bright-cyan, $lime-green);
+        height: 0.25rem;
+        width: 100%;
+      }
+    }
+  }
+
+  .nav-cta {
+    @include btn;
+  }
+
+  .menu-open,
+  .menu-close {
+    display: none;
+  }
+}
+
+// Hero Section
+.hero .container {
+  @include displayGrid(space-between, start, 2, 2em);
+  padding-right: 0 !important;
+  overflow: hidden;
+  min-height: 50rem;
+
+  .left-col {
+    max-width: 25.6rem;
+
+    .head {
+      font-size: 3rem;
+      font-weight: 300;
+      color: $dark-blue;
+      margin-top: 3em;
+    }
+
+    .sub-head {
+      margin-top: 2.3em;
+    }
+
+    .hero-cta {
+      @include btn;
+      margin-top: 2.3em;
+    }
+  }
+
+  .right-col {
+    position: relative;
+
+    .bg-illustration {
+      position: absolute;
+      z-index: -1;
+      top: -17em;
+      right: -30em;
+    }
+
+    .bg-illustration-m {
+      display: none;
+    }
+
+    .mobile-illustration {
+      position: absolute;
+      top: -8em;
+      right: -8em;
+    }
+  }
+}
+
+// Feature Section
+.features {
+  background-color: $light-grayish-blue;
+  padding: 6em 0;
+
+  .sub-head {
+    margin-top: 2em;
+    max-width: 36rem;
+  }
+
+  .feat-container {
+    @include displayGrid(space-between, center, 4, 2em);
+    margin-top: 4.5em;
+
+    h4 {
+      margin: 1.8em 0;
+    }
+  }
+}
+
+.article {
+  padding: 6em 0;
+
+  .article-container {
+    @include displayGrid(space-between, start, 4, 2em);
+    margin-top: 3em;
+
+    & > div {
+      background-color: $white;
+      padding: 2em;
+      position: relative;
+      min-height: 28rem;
+    }
+
+    .article-img {
+      width: 100%;
+      height: 11.5rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .writer {
+      font-size: 0.7rem;
+      margin-top: 16em;
+    }
+
+    h4 {
+      margin: 0.8em 0 0.5em;
+
+      &:hover {
+        color: $lime-green;
+        cursor: pointer;
+      }
+    }
+
+    p:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+// Footer Section
+footer {
+  background-color: $dark-blue;
+  padding: 3em 0;
+
+  .flex-container {
+    @include displayFlex(space-between, start, 1em);
+
+    .left-col {
+      @include displayGrid(start, start, 3, 6em);
+
+      .footer-1 {
+        height: 100%;
+        @include displayFlex(space-between, start, 1em);
+        flex-direction: column;
+
+        .logo {
+          filter: invert(1);
+        }
+
+        .social-links > a i {
+          color: $white;
+          font-size: 1.2rem;
+          margin: 0 0.2em;
+
+          &:hover {
+            color: $lime-green;
+          }
+        }
+      }
+
+      .footer-2 {
+        .list {
+          @include footerList;
+        }
+      }
+
+      .footer-3 {
+        .list {
+          @include footerList;
+        }
+      }
+    }
+
+    .right-col {
+      .footer-4 {
+        @include displayFlex(space-between, flex-end, 1em);
+        flex-direction: column;
+
+        .footer-cta {
+          @include btn;
+        }
+
+        p {
+          margin-top: 0.9em;
+        }
+      }
+    }
+  }
+}
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding-left: 5em !important;
+  padding-right: 5em !important;
+}
+
+@import "./media-queries";
